@@ -20,6 +20,7 @@ class SanPhamServiceTest {
         sanPhamService.add(sanPham);
 
         assertEquals(1 , sanPhamService.getAll().size());
+        assertEquals("Laptop Dell" , sanPhamService.getOne(1).get().getTen());
     }
 
     @Test
@@ -35,7 +36,7 @@ class SanPhamServiceTest {
     }
 
     @Test
-    void addWithInValidMa(){
+    void addWithInvalidMa(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> sanPhamService.add(new SanPham(1,"" , "LapTop ASUS" , 5 , 1660000F ,3 , "LapTop")));
         assertEquals("Mã không được để trống" , exception.getMessage());
     }
@@ -49,6 +50,11 @@ class SanPhamServiceTest {
     void addWithInvalidGia(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> sanPhamService.add(new SanPham(1,"SP01" , "LapTop ASUS" , 12 , -5F ,3 , "LapTop")));
         assertEquals("Giá phải lớn hơn 0" , exception.getMessage());
+    }
+    @Test
+    void addWithInvalidDanhMuc(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> sanPhamService.add(new SanPham(1,"SP01" , "LapTop ASUS" , 12 , 1800000F ,3 , "")));
+        assertEquals("Danh mục không được để trống" , exception.getMessage());
     }
     @Test
     void addWithNull(){

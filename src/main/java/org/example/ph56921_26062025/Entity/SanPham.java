@@ -88,7 +88,7 @@ public class SanPham {
 
     public void setDanhMuc(String danhMuc) {
         if(danhMuc == null || danhMuc.isEmpty()){
-            throw new IllegalArgumentException("Tên không được để trống");
+            throw new IllegalArgumentException("Danh mục không được để trống");
         }
         this.danhMuc = danhMuc;
     }
