@@ -16,7 +16,7 @@ class MyUtilsTest {
 
     @Test
     void tinhTongSoChanWithNis8() {
-        assertEquals(21, myUtils.tinhTongSoChan(8));
+        assertEquals(20, myUtils.tinhTongSoChan(8));
     }
 
 }
